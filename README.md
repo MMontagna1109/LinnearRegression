@@ -1,7 +1,3 @@
-# LinnearRegression
-Curso SentDex
-
-
 #!pip install quandl
 #!pip install sklearn
 #!pip install pandas
@@ -60,7 +56,12 @@ y = np.array(df['Label'])
 X_train, X_test, y_train, y_test = model_selection.train_test_split(X, y, test_size=0.2)  #Separa y aleatoriza los datos, y pone un 20% para testear
 
 clf = LinearRegression()  #Libreria de TensorFlow
-clf.fit(X_train, y_train) #Utilizo la separacion de train para entrenar (%80)
+clf.fit(X_train, y_train) #Utilizo la separacion de train para entrenar (%80), acá ya tengo el clasificador entrenado
+with open('linearregression.pickle','wb') as f:
+  pickle.dump(clf, f)
+
+pickle_in = open('linearregression.pickle', 'rb') # Guarda el modelo de regresion lineal, ejecutado una sola vez, puedo usar estas lineas enlugar de clf=LinearRegression()
+clf = pickle.load(pickle_in)
 
 accuracy = clf.score(X_test, y_test) #Chequeas con el 20% restante de la base de datos que tan bien se comporta el modelo
 
