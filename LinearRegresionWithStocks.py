@@ -4,7 +4,7 @@
 
 
 import pandas as pd
-import quandl  #Es la base de datos de las acciones
+import quandl  #Es la base de datos de las stocks
 import math  #Permite hacer operaciones matematicas
 import datetime  #Permite trabajar con fecha y horas
 import numpy as np  #Permite utilizar arrays, python no deja usar arrays sin esta libreria
